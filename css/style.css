@@ -108,6 +108,11 @@ a:hover { color: #ff6b8a; }
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 24px;
 }
+.game-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
 .game-card {
   background: #181818;
   border-radius: 12px;

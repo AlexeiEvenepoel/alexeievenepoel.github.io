@@ -2,15 +2,18 @@
   'use strict';
 
   const GAMES = [
-    { name: 'Cyberpunk 2077 Ultimate Edition', gradient: 'linear-gradient(135deg, #fcee21, #f09b22)' },
-    { name: 'Elden Ring Deluxe Edition',       gradient: 'linear-gradient(135deg, #6b3fa0, #2d1b4e)' },
-    { name: 'Grand Theft Auto V Enhanced',      gradient: 'linear-gradient(135deg, #f5a623, #e07b1a)' },
-    { name: 'Call of Duty Modern Warfare II',   gradient: 'linear-gradient(135deg, #c0392b, #6b1a12)' },
-    { name: 'Red Dead Redemption 2',            gradient: 'linear-gradient(135deg, #c62828, #4a0e0e)' },
-    { name: 'Alan Wake 2 Deluxe Edition',       gradient: 'linear-gradient(135deg, #1a1a2e, #0d0d1a)' },
-    { name: 'Baldur\'s Gate 3 Deluxe Edition',  gradient: 'linear-gradient(135deg, #8b4513, #3e1a00)' },
-    { name: 'Marvel\'s Spider-Man Miles Morales',gradient: 'linear-gradient(135deg, #e63946, #8a1a24)' },
-    { name: 'Horizon Forbidden West',           gradient: 'linear-gradient(135deg, #457b9d, #1d3557)' },
+    { name: 'Cyberpunk 2077 Ultimate Edition', img: 'images/cyberpunk-2077.png', slug: 'cyberpunk-2077' },
+    { name: 'Elden Ring Deluxe Edition',       img: 'images/elden-ring.png', slug: 'elden-ring' },
+    { name: 'Grand Theft Auto V Enhanced',      img: 'images/grand-theft-auto.png', slug: 'grand-theft-auto' },
+    { name: 'Final Fantasy VII Rebirth',        img: 'images/final-fantasy.png', slug: 'final-fantasy' },
+    { name: 'Call of Duty Modern Warfare II',   img: 'images/call-of-duty.png', slug: 'call-of-duty' },
+    { name: 'Days Gone',                        img: 'images/days-gone.png', slug: 'days-gone' },
+    { name: 'Detroit Become Human',             img: 'images/detroit-become-human.png', slug: 'detroit-become-human' },
+    { name: 'Dead Island 2 Ultimate Edition',   img: 'images/dead-island-2.png', slug: 'dead-island-2' },
+    { name: 'Tekken 8',                         img: 'images/tekken-8.png', slug: 'tekken-8' },
+    { name: 'Stellar Blade',                    img: 'images/stellar-blade.png', slug: 'stellar-blade' },
+    { name: 'Alien Isolation Complete Edition', img: 'images/alien-isolation.png', slug: 'alien-isolation' },
+    { name: 'Borderlands 4 Deluxe Edition',     img: 'images/borderlands-4.png', slug: 'borderlands-4' },
   ];
 
   const REVIEWS = [
@@ -50,18 +53,16 @@
     const gamesGrid = document.getElementById('gamesGrid');
     if (gamesGrid) {
       gamesGrid.innerHTML = GAMES.map(game => `
-        <div class="game-card">
-          <div class="game-thumb-placeholder" style="background: ${game.gradient}">
-            <span style="text-shadow: 0 2px 8px rgba(0,0,0,.5);">${game.name.split(' ').slice(0, 2).join(' ')}</span>
+        <a href="https://www.tiktok.com/@ladyfragile1" target="_blank" class="game-card-link">
+          <div class="game-card">
+            <img class="game-thumb" src="${game.img}" alt="${game.name}" loading="lazy">
+            <div class="game-info">
+              <div class="game-name">${game.name}</div>
+              <div class="game-stars">${renderStars(4 + Math.round(Math.random()))}</div>
+              <span class="game-link">&#9654; Watch on TikTok</span>
+            </div>
           </div>
-          <div class="game-info">
-            <div class="game-name">${game.name}</div>
-            <div class="game-stars">${renderStars(4 + Math.round(Math.random()))}</div>
-            <a href="https://www.tiktok.com/@ladyfragile" class="game-link" target="_blank">
-              &#9654; Watch on TikTok
-            </a>
-          </div>
-        </div>
+        </a>
       `).join('');
     }
 
